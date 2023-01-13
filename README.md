@@ -10,7 +10,7 @@
 - About Figma / Sketch
 - Funfacts
 
-<wm-tutorial tipps="Benutze die rechte Pfeiltaste ➡ oder wische nach links um zur nächsten Folie zu gelangen. Mit F11 kannst du zum Vollbild Modus wechseln."></wm-tutorial>
+<wm-tutorial tipps="Use the right arrow key ➡ or swipe to the left in order to go to the next slide. Press F11 for fullscreen mode."></wm-tutorial>
 
 ---
 
