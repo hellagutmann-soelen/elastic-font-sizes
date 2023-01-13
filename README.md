@@ -1,139 +1,128 @@
-# [Webmontag](https://webwirtschaft.net/webmontag): Webbluetooth
+# Developer Exchange: Elastic font sizes
 
-![Webbluetooth](/assets/icons/icon_192.png)
+<wm-rem></wm-rem>
 
-- Was ist Webbluetooth? 
-- Wie sieht das in der Praxis aus?
-- Wie hat es begonnen?
-- Wie sieht die Zukunft aus?
+- What are elastic font sizes? 
+- Why do we need elastic font sizes?
+- Where do I use elastic font sizes?
+- In the field
+- Should I change it now?
+- About Figma / Sketch
+- Funfacts
 
 <wm-tutorial tipps="Benutze die rechte Pfeiltaste ➡ oder wische nach links um zur nächsten Folie zu gelangen. Mit F11 kannst du zum Vollbild Modus wechseln."></wm-tutorial>
 
 ---
 
-## Was ist Webbluetooth?
+## What are elastic font sizes?
 
-- Es ist eine [Web API](https://developer.mozilla.org/en-US/docs/Web/API)
-- Bluetooth ist ein Industriestandard welche von der [SIG](https://de.wikipedia.org/wiki/Bluetooth_Special_Interest_Group) vorangetrieben wurde.
-- Der Name wurde vom dänischen König [Harald Blauzahn](https://de.wikipedia.org/wiki/Harald_Blauzahn#Sonstiges) abgeleitet
-- Das Logo ![Bluetooth](/assets/icons/bluetooth.svg) zeigt ein Monogram von altnordischen Runen
-- Heutzutage bildet Sie eine Schnittstelle über die alle Geräte miteinander kabelos kommunizieren
+- Elastic font sizes are not "absolute" like "px"
+- Elastic font sizes are relativ to something
+- There are 2 css units right now which are commonly used: EM and REM
+- EM is relativ to its parent element font size
+- REM is relativ to the root element, e.g. the HTML element
 
----
-
-### Wie funktioniert der Standard?
-
-<div>
-<div style="float:left; margin-right: 48px;">
-
-![Eigenbaukombinat Halle](/assets/gatt.svg)
-
-</div>
-</div>
-
-- Der [GATT](https://www.bluetooth.com/specifications/specs) Server (Generic Attribute Profile) ist ein Standard der definiert wie Daten versendet werden
-- GATT verwendet einen Datenprotokoll namens ATT (Attribute Protocol)
-- Nachdem du dich mit dem GATT Server des Gerätes verbunden hast erhälst du eine Liste von Services
-- Ein Gerät kann mehere Services anbieten, die entwider von SIG oder vom Hersteller definiert werden. Services wie z.B. Bluetooth Köpfhörer können neben einem Audioservice den Service anbieten eine Playliste zu bedienen.
-- Services haben Characteristics. Bei einem Characteristic handelt es sich um eine Low-Level Datenschnittstelle die die Daten des Services wiederspiegeln.
-- Eine Characteristic gibt an ob man darauf Schreiben, Lesen oder ( im Sinne eines Event Listener) zuhören kann. Beispiel: Bei einem BT Herz Schrittmesser könntest du einen Event Listener binden welche dir aktiv Daten liefert; oder bei einem Kassendrucker könntest du eine Characteristic mit Schreibrechte Druckbefehle übersenden.
-
-Tipp: [nRF Connect](https://play.google.com/store/apps/details?id=no.nordicsemi.android.mcp&hl=en&gl=US) kann nach Bluetooth Geräte Scannen, verbinden und Information über die Services und Characteristics preisgeben!
-
-Quelle: [Adafruit](https://learn.adafruit.com/introduction-to-bluetooth-low-energy), [web.dev/bluetooth](https://web.dev/bluetooth/)
-
----
-## Meine Vorgeschichte
-
-- Als Kind hatte ich ein Gameboy Printer. Es war eine spaßige Erfahrung!
-- Jahre später habe ich privat einen Bluetooth Kassendrucker erworben und ein bisschen einer Android App experimentiert
-- Vor einigen Monaten hab ich beim Eigenbaukombinat eine Digital umgesetzte  Anwesenheitsliste bedient. Es war an einem Kassendrucker angeschlossen. Der Kassendrucker hat ein Code ausgedruckt womit du dich wieder abmelden konntest.
-- Daneben lag eine Ausgiebige Beschreibung wie sie das umgesetzt haben: Mit ESC/POS.
-- Ich war neugierig ob ich meinen Kassendrucker via Webbluetooth bedienen konnte...
-
-![Eigenbaukombinat Halle](/assets/ebk.jpg)
-![Eigenbaukombinat Halle](/assets/anwesenheitsliste.jpg)
-
-[Eigenbaukombinat.de](https://eigenbaukombinat.de/)
+![EM and REM](https://smazee.com/uploads/images/css-unit-4.png)
 
 ---
 
+## Where do I use elastic font sizes?
 
-## ESC/POS
-
-![ESC/POS Quickreference](/assets/escpos-quickreference.jpg)
-
-[ESC/POS quick reference](https://manualzz.com/doc/20630706/esc-pos-quick-reference)
-
-- Kassendrucker bauen oft auf den [ESC/POS](https://en.wikipedia.org/wiki/ESC/P) (Epson Standard Code for Printers / Point of Sale) standard auf
-- ESC/POS ist von EPSON entwickelt worden
-- ESC weil es stark auf Escape Sequenzen aufbaut ( z.B ESC E, ESC F um etwas Fett zu markieren)
-
-
----
-### Praxisbeispiel: Kassendrucker
-
-Um diese Demo ausführen zu können braucht ihr:
-
-- Ein Betriebsystem und Browser welches den Standard unterstützt
-- Ein [ESC/POS Kompaktibles Gerät](https://www.amazon.de/s?k=esc%2Fpos+bluetooth)
-
-<wm-bluetooth></wm-bluetooth>
-
-[source](https://github.com/soelen/webmontag-webbluetooth/tree/main/src)
-
+- For the `font-size` attribute of course
+- Icons
+- Logos, especially if the logo has letters
+- In some cases for spacings like margin and paddings as well
+- In an ideal world: REM and absolute units like PX should coexist in a project
 
 ---
 
-## Kann ich diesen Standard schon heute verwenden?
+### Why do we need elastic font sizes?
 
-- Standard gibt es "erst" seit "2017" 
-- Betriebsystemabhängig, am Anfang wurden z.B. nur Macbooks unterstützt.
-- Auf Linuxrechner scheint es immernoch Probleme zu geben
-- Auf manche Betriebsysteme ist das Feature absichtlich ausgeschaltet. Mit [chrome://flags](chrome://flags/#enable-web-bluetooth-new-permissions-backend) kann das erzwungen werden
-- Hardwareabhängig, persöhnliche Erfahrung: Code hat sich [anders auf Mobilgeräte verhalten](https://bugs.chromium.org/p/chromium/issues/detail?id=1183721)
+- It is an accessbility feature
+- Some people have a low vison disablity
+- Some people work with small screens, e.g. small desktop screens
+- Interacting with user interfaces makes it harder for them
+- Zooming into web application increases Fontsize but user interface as well
+- Thus zooming has its limits and could break user interface / confuse the user
 
-[caniuse](https://caniuse.com/web-bluetooth)
+---
+## In the field: Examples from german bürgerservices
+
+Webpages of citizen services are somewhat required to make their services accessible. Here are some examples:
+
+### Negative examples
+
+
+- [Walldorf](https://www.walldorf.de/rathaus/buergerservice/termine)
+- [Halle](https://www.halle.de/de/Startseite/)
+- [Albstadt](https://www.albstadt.de/%C3%96ffnungszeiten#)
+- [Reichling](https://www.vg-reichling.de/toolbar/schriftgroesse-aendern/)
+- [Worms](https://www.worms.de/neu-de/buergerservice/)
+- [Potsdam](https://vv.potsdam.de/vv/oe/173010100000007821.php)
+- [Dransfeld](https://www.dransfeld.de/dienstleistung/anzeigen/id/26314/an-ab-und-ummeldungen-einwohnermeldeamt.html?browser=1)
+
+
+### Positive examples
+
+- [Lübeck](https://www.luebeck.de/de/buergerservice/termine-online/index.html)
+- [Berlin](https://service.berlin.de/terminvereinbarung/)
+- [Sachen Anhalt](https://buerger.sachsen-anhalt.de/detail?areaId=&pstId=&ouId=184303&infotype=0#)
 
 ---
 
-### Negativbeispiel: Daydreamcontroller
 
-- 2017: Daydreamcontroller hat noch mit Webbluetooth funktioniert
-- Nach einem Firmware Update des Controllers: [Event Listener hat nicht mehr funktioniert](https://github.com/mrdoob/daydream-controller.js)
-- Wurde wahrscheinlich wegen dem kommerziellen Fehlschlag von Daydream nicht mehr verfolgt an was es liegen könnte
+## In the field: Examples from different component libraries
 
-<wm-youtube>https://www.youtube.com/watch?v=gMQQvL-3Psg</wm-youtube>
+It is also interesting to check out which approaches some component library teams went in the end:
 
-Durch diese Belege zeigt sich eins: Die experimentelle Technologie ist immernoch experimentell.
+### Positive examples
+
+- [MUI Button](https://mui.com/material-ui/react-button/)
+- [Bootsrap Button](https://getbootstrap.com/docs/4.0/components/buttons/)
+
+### Negative examples
+
+- [Vuetify](https://vuetifyjs.com/en/components/buttons/)
+
+---
+
+## In the field: An Hella gutmann exampe
+
+[macs365 got a new homepage!](https://macs365.test01.hgs.cloud/en/homepage)
+
+
+
+---
+
+## Should I change it now?
+
+- Short answer no.
+- Depends in one hand if you want to support this accessbility and if your setup / component library supports it
+- For the time being it is good to be aware of this accessbility feature
+- Something we certainly want to integrate in Reusable Frontend components :)
+
+[caniuse](https://caniuse.com/rem)
+
+---
+
+### About Figma / Sketch 
+
+- Figma and Sketch are not able to use / display relative and elastic units
+- Rule of thumb: Dont take the values presented in Figma / Sketch 1:1
+- Talk to your UX/UI guy or check out the styleguide
+
 
 --- 
 
-## Webbluetooth ≠ Webbluetooth
+## Funfacts
 
-- Es gab den versuch von Mozilla ein eigenes Browserbasierendes Betriebsystem namens Firefox OS zu etablieren
-- Um Hardware für Webapp Entwickler zugänglich zu machen wurden extrem viele "Web" Standards geschrieben
-- Es gab einen alten, inoffizellen [Web Bluetooth API Standard](http://man.hubwiz.com/docset/JavaScript.docset/Contents/Resources/Documents/developer.mozilla.org/en-US/docs/Mozilla/Firefox_OS/API/Bluetooth_API.html)
-- [Webapp](https://github.com/begeeben/firefox-os-browser-sample), sind für Firefox OS geschriebene Applikationen, die mit Webtechnologien ermöglicht werden. 
+- Windows 95 and all other old Operating Systems from the Era tried to tackle the issue about font sizes and accessbility as well. An example can be found on this [document on page 14](https://old.nzao.co.nz/sites/default/files/LV%20Computer%20Booklet-NZAO.pdf#page=14).
+- I created a [storybook addon](https://storybook.js.org/addons/storybook-addon-rem) recently! A plugin which lets you change the root font size!
 
----
-
-### Webapp ist tot, es lebe PWA!
-
-- PWA's sind Progressive Web Apps welche eine weitere Form Applikationen mit Webtechnologien zu ermöglichen
-- PWA können lokal gespeichert werden
-- In verbindung mit Web API's wie z.B. Webbluetooth lassen sich Webapplikationen mit Hardwarezugriff schreiben
-- Praxisbeispiel diese Präsentation ist eine PWA! Somit habe ich sobald ich diese Präsentation installiert habe jederzeit die Möglichkeit meinen Kassendrucker zu bedienen! ✨
-
-Kurzum: PWA's in verbindung mit Web API's rockt! Aber nach all den Jahren werden Webapplikationen die auf Hardware zugreifen erst einmal eine romantische Idee bleiben. 😊
-
-chrome://inspect#devices
+![Storybook Addon REM](https://raw.githubusercontent.com/soelen/storybook-addon-rem/master/.github/images/icon.gif)
 
 
 ---
 
-# Vielen Dank!
+# Thank you!
 
-![webmontag-webbluetooth.netlify.app](/assets/url.png)
-
-[webmontag-webbluetooth.netlify.app](https://webmontag-webbluetooth.netlify.app/)

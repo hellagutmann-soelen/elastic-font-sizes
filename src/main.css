@@ -1,7 +1,7 @@
 :root {
-  --wm-primary: #10bb79;
-  --wm-primary-dark: #0c8457;
-  --wm-primary-darker: #047a4e;
+  --wm-primary: #007d40;
+  --wm-primary-dark: #007039;
+  --wm-primary-darker: #005d2f;
 
   --htsd-body-bg-color: var( --wm-primary-dark );
   --htsd-slide-bg-color: var( --wm-primary );
