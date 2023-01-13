@@ -88,7 +88,7 @@ It is also interesting to check out which approaches some component library team
 
 ## In the field: An Hella gutmann exampe
 
-[macs365 got a new homepage!](https://macs365.test01.hgs.cloud/en/homepage)
+[macs365 got a new homepage!](https://macs365.com)
 
 
 
