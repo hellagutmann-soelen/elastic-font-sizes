@@ -118,6 +118,7 @@ It is also interesting to check out which approaches some component library team
 
 - Windows 95 and all other old Operating Systems from the Era tried to tackle the issue about font sizes and accessbility as well. An example can be found on this [document on page 14](https://old.nzao.co.nz/sites/default/files/LV%20Computer%20Booklet-NZAO.pdf#page=14).
 - I created a [storybook addon](https://storybook.js.org/addons/storybook-addon-rem) recently! A plugin which lets you change the root font size!
+- [Aleksandr Hovhannisyan](https://www.aleksandrhovhannisyan.com/blog/use-rems-for-font-size/) wrote an awesome article about [rems for font size](https://www.aleksandrhovhannisyan.com/blog/use-rems-for-font-size/). Check it out if you want to learn more about this CSS unit.
 
 ![Storybook Addon REM](https://raw.githubusercontent.com/soelen/storybook-addon-rem/master/.github/images/icon.gif)
 
