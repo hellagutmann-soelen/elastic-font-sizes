@@ -8,6 +8,7 @@
   --htsd-header-color: white;
   --htsd-highlight-color: white;
   --htsd-text-color: white;
+  font-size: 28px;
 }
 
 *, ::after, ::before {

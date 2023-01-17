@@ -22,7 +22,7 @@
 - EM is relativ to its parent element font size
 - REM is relativ to the root element, e.g. the HTML element
 
-![EM and REM](https://smazee.com/uploads/images/css-unit-4.png)
+![EM - REM](/assets/em-rem.svg)
 
 ---
 
@@ -127,3 +127,8 @@ It is also interesting to check out which approaches some component library team
 
 # Thank you!
 
+![QrCode](/assets/url.png)
+
+[elastic-font-sizes.netlify.app](https://elastic-font-sizes.netlify.app/)
+
+[Github](https://github.com/hellagutmann-soelen/elastic-font-sizes)
